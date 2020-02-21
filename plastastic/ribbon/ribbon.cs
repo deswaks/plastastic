@@ -50,15 +50,13 @@ namespace Ribbon
             // Laver RibbonTab 
             string ribbonName = "plastastic";
             application.CreateRibbonTab(ribbonName);
-
+            // Læser Revit version (fx '2019')
             string versionNumber = application.ControlledApplication.VersionNumber;
 
             // Sti til denne dll (sti til dll med dét script, en knap skal køre):
             string thisAssemblyPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
 
-            ////////////////
-            //// PANELS ////
-            // Laver ribbon panel kaldt "Sheets" under fanen "Rubow"
+            // Laver fx ribbon panel kaldt "STL Export" under fanen "plastastic"
             Dictionary<string, RibbonPanel> buttonPanel = new Dictionary<string, RibbonPanel>();
 
             // Navne på panels
@@ -72,16 +70,14 @@ namespace Ribbon
                 buttonPanel.Add(panelName, application.CreateRibbonPanel(ribbonName, panelName));
             }
 
-            // //////////
-            // BUTTONS //
             // Liste med knapper for alle scripts. Hver knap angiver et script
             List<Button> buttons = new List<Button>
             {
-                new Button("stlExport", "Export STL", "ExportSTL", "ExportSTL", "Exports an STL","", "STL Export", "exportstl.PNG"),
+                new Button("stlExport", "Export STLz", "ExportSTL", "ExportSTL", "Exports an STL","", "STL Export", "exportstl.PNG"),
 
             };
 
-            // Opretter knapper på Revit ribbon for hvert script i scriptOversigt
+            // Opretter knapper på Revit ribbon
             foreach (Button but in buttons)
             {
                 Uri bt_ikon = new Uri(@"C:\ProgramData\Autodesk\Revit\Addins\" + versionNumber + @"\deswaks\" + but.ikonFilnavn);

@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <RevitAddIns>
 	<AddIn Type="Application">
-		<Text>Rubow Plugin</Text>
+		<Text>plastastic</Text>
 		<AllowLoadingIntoExistingSession>true</AllowLoadingIntoExistingSession>
 		<ClientId>D06FD36E-3290-417C-87FB-60A93FB5555D</ClientId>
-		<Name>deswaks</Name>
+		<Name>plastastic</Name>
 		<FullClassName>Ribbon.Ribbons</FullClassName>
 		<Assembly>C:\Users\Administrator\Dropbox\VisualStudio\RubowPlugin\RubowPlugin\bin\x64\Debug\RubowPlugin.dll</Assembly>
 		<VendorId>NAME</VendorId>
