@@ -74,7 +74,7 @@ namespace Ribbon
             List<Button> buttons = new List<Button>
             {
                 new Button("stlExport", "Export STLz", "ExportSTL", "ExportSTL", "Exports an STL","", "STL Export", "exportstl.PNG"),
-
+                // Anders elsker børn
             };
 
             // Opretter knapper på Revit ribbon
