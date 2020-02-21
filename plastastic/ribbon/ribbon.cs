@@ -48,7 +48,7 @@ namespace Ribbon
         public Result OnStartup(UIControlledApplication application)
         {
             // Laver RibbonTab 
-            string ribbonName = "deswaks";
+            string ribbonName = "plastastic";
             application.CreateRibbonTab(ribbonName);
 
             string versionNumber = application.ControlledApplication.VersionNumber;
