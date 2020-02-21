@@ -25,6 +25,8 @@ namespace ExportSTL
             List<Element> alleSheets = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Sheets).ToElements().ToList();
 
 
+            MessageBox.Show("!", "Dette er en meddelelse");
+
             // Starter transaction
             Transaction t = new Transaction(doc);
             t.Start("Export STL");

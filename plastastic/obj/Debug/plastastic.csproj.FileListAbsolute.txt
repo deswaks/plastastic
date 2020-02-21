@@ -1,0 +1,5 @@
+C:\Users\Administrator\Dropbox\VisualStudio\plastastic\plastastic\plastastic\bin\Debug\plastastic.dll
+C:\Users\Administrator\Dropbox\VisualStudio\plastastic\plastastic\plastastic\bin\Debug\plastastic.pdb
+C:\Users\Administrator\Dropbox\VisualStudio\plastastic\plastastic\plastastic\obj\Debug\plastastic.dll
+C:\Users\Administrator\Dropbox\VisualStudio\plastastic\plastastic\plastastic\obj\Debug\plastastic.pdb
+C:\Users\Administrator\Dropbox\VisualStudio\plastastic\plastastic\plastastic\obj\Debug\plastastic.csprojAssemblyReference.cache
