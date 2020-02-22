@@ -23,7 +23,7 @@ namespace ExportSTL
 
             //FilteredElementCollector finder alle sheets i dokumentet
             List<Element> alleSheets = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Sheets).ToElements().ToList();
-
+            
 
             MessageBox.Show("!", "Dette er en meddelelse");
 

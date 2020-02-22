@@ -48,7 +48,7 @@ namespace Ribbon
         public Result OnStartup(UIControlledApplication application)
         {
             // Laver RibbonTab 
-            string ribbonName = "plastastic";
+            string ribbonName = "Plastastic";
             application.CreateRibbonTab(ribbonName);
             // Læser Revit version (fx '2019')
             string versionNumber = application.ControlledApplication.VersionNumber;
@@ -73,7 +73,7 @@ namespace Ribbon
             // Liste med knapper for alle scripts. Hver knap angiver et script
             List<Button> buttons = new List<Button>
             {
-                new Button("stlExport", "Export STLz", "ExportSTL", "ExportSTL", "Exports an STL","", "STL Export", "exportstl.PNG"),
+                new Button("stlExport", "Export STL", "ExportSTL", "ExportSTL", "Exports an STL","", "STL Export", "exportstl.PNG"),
             };
 
             // Opretter knapper på Revit ribbon

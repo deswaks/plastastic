@@ -3,3 +3,8 @@ C:\Users\Administrator\Dropbox\VisualStudio\plastastic\plastastic\plastastic\bin
 C:\Users\Administrator\Dropbox\VisualStudio\plastastic\plastastic\plastastic\obj\Debug\plastastic.dll
 C:\Users\Administrator\Dropbox\VisualStudio\plastastic\plastastic\plastastic\obj\Debug\plastastic.pdb
 C:\Users\Administrator\Dropbox\VisualStudio\plastastic\plastastic\plastastic\obj\Debug\plastastic.csprojAssemblyReference.cache
+C:\Users\ander\Source\Repos\deswaks\plastastic\plastastic\bin\Debug\plastastic.dll
+C:\Users\ander\Source\Repos\deswaks\plastastic\plastastic\bin\Debug\plastastic.pdb
+C:\Users\ander\Source\Repos\deswaks\plastastic\plastastic\obj\Debug\plastastic.csprojAssemblyReference.cache
+C:\Users\ander\Source\Repos\deswaks\plastastic\plastastic\obj\Debug\plastastic.dll
+C:\Users\ander\Source\Repos\deswaks\plastastic\plastastic\obj\Debug\plastastic.pdb
