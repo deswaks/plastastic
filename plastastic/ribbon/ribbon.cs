@@ -61,7 +61,7 @@ namespace Ribbon
 
             // Navne på panels
             List<string> panelNames = new List<string>(new string[]{
-                "STL Export"
+                "Building Printer"
             });
 
             // Opretter RibbonPanel for hvert navn:
@@ -73,7 +73,7 @@ namespace Ribbon
             // Liste med knapper for alle scripts. Hver knap angiver et script
             List<Button> buttons = new List<Button>
             {
-                new Button("stlExport", "Export STL", "ExportSTL", "ExportSTL", "Exports an STL","", "STL Export", "exportstl.PNG"),
+                new Button("stlExport", "Export STL", "BuildingPrinter", "Print", "Exports an STL","", "Building Printer", "exportstl.PNG"),
             };
 
             // Opretter knapper på Revit ribbon

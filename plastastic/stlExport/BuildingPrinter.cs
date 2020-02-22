@@ -11,7 +11,7 @@ namespace BuildingPrinter
     [Transaction(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]
 
-    public class ExportSTL : IExternalCommand
+    public class Print : IExternalCommand
     {
 
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
@@ -68,6 +68,7 @@ namespace BuildingPrinter
 
             return Result.Succeeded;
         }
+
     }
 
 
