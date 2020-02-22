@@ -13,6 +13,7 @@ namespace ExportSTL
 
     public class ExportSTL : IExternalCommand
     {
+
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             UIApplication uiApp = commandData.Application;
@@ -22,20 +23,34 @@ namespace ExportSTL
 
 
             //FilteredElementCollector finder alle sheets i dokumentet
-            List<Element> alleSheets = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Sheets).ToElements().ToList();
-            
+            // List<Element> alleSheets = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Sheets).ToElements().ToList();
 
-            MessageBox.Show("!", "Dette er en meddelelse");
+            List<Element> allWalls = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).ToElements().ToList();
+            List<ElementId> elementIds = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).ToElementIds().ToList();
+
+
+
+            // view isolateWalls = new FilteredElementCollector(doc).OfClass(typeof(View)).Cast<View>().
+
+            string elementstrings = "";
+            foreach (ElementId id in elementIds)
+            {
+                elementstrings = elementstrings + "," + id.ToString();
+            }
+
+            Autodesk.Revit.DB.View currentview = doc.ActiveView;
+
+            // MessageBox.Show(elementstrings, "Wall element id's");
 
             // Starter transaction
             Transaction t = new Transaction(doc);
-            t.Start("Export STL");
+            t.Start("Isolate walls");
 
-
+            currentview.IsolateElementsTemporary(elementIds);
 
             // Transaction close:
             t.Commit();
-            
+
 
 
 
