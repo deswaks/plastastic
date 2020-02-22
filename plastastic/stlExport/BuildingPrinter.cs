@@ -6,7 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 
 
-namespace ExportSTL
+namespace BuildingPrinter
 {
     [Transaction(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]
@@ -61,7 +61,7 @@ namespace ExportSTL
 
             // Transaction close:
             t.Commit();
-
+            
 
 
 
@@ -69,6 +69,7 @@ namespace ExportSTL
             return Result.Succeeded;
         }
     }
+
 
     // The Availability Class must be added before the project can be loaded into Revit:
     public class Availability : IExternalCommandAvailability

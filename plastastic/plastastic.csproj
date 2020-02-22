@@ -55,7 +55,7 @@
   <ItemGroup>
     <Compile Include="ribbon\ribbon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="stlExport\ExportSTL.cs" />
+    <Compile Include="stlExport\BuildingPrinter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
