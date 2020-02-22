@@ -27,6 +27,7 @@ namespace BuildingPrinter
 
             List<Element> allWalls = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).ToElements().ToList();
             List<ElementId> elementIds = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).ToElementIds().ToList();
+            List<Element> allRooms = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Rooms).ToElements().ToList();
 
 
 
