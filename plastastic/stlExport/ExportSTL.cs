@@ -42,6 +42,17 @@ namespace ExportSTL
 
             // MessageBox.Show(elementstrings, "Wall element id's");
 
+            DialogResult dialogResult = MessageBox.Show("Do you wanna export walls to stl?", "stl export", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+
+
             // Starter transaction
             Transaction t = new Transaction(doc);
             t.Start("Isolate walls");
