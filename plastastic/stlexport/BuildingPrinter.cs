@@ -1,5 +1,6 @@
 ﻿using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
+using Autodesk.Revit.DB.Architecture;
 using Autodesk.Revit.UI;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,11 +29,12 @@ namespace BuildingPrinter
             List<Element> allWalls = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).ToElements().ToList();
             List<ElementId> elementIds = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).ToElementIds().ToList();
             List<Element> allRooms = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Rooms).ToElements().ToList();
+            
+            SpatialElementGeometryCalculator calculator = new SpatialElementGeometryCalculator(doc);
 
-
+            List<Solid> roomGeometry = allRooms.Select( r => calculator.CalculateSpatialElementGeometry((Room)r).GetGeometry() ).ToList();
 
             // view isolateWalls = new FilteredElementCollector(doc).OfClass(typeof(View)).Cast<View>().
-
             string elementstrings = "";
             foreach (ElementId id in elementIds)
             {
