@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <RevitAddIns>
 	<AddIn Type="Application">
-		<Text>plastastic</Text>
+		<Text>DESWAKS plugin</Text>
 		<AllowLoadingIntoExistingSession>true</AllowLoadingIntoExistingSession>
 		<ClientId>D06FD36E-3290-417C-87FB-60A93FB5555D</ClientId>
-		<Name>plastastic</Name>
+		<Name>deswaks</Name>
 		<FullClassName>Ribbon.Ribbons</FullClassName>
-		<Assembly>C:\Users\Administrator\Dropbox\VisualStudio\RubowPlugin\RubowPlugin\bin\x64\Debug\RubowPlugin.dll</Assembly>
+		<Assembly>.\plastastic.dll</Assembly>
 		<VendorId>NAME</VendorId>
 		<VendorDescription>Your Company Info</VendorDescription>
 	</AddIn>
