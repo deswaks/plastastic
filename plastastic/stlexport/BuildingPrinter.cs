@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using BIM.STLExport;
+using System.Windows.Forms;
 
 namespace BuildingPrinter
 {
@@ -33,9 +34,19 @@ namespace BuildingPrinter
             m_Generator = new DataGenerator(m_Revit.Application,
                                             m_Revit.ActiveUIDocument.Document,
                                             m_Revit.ActiveUIDocument.Document.ActiveView);
+            FolderBrowserDialog folderDialog = new FolderBrowserDialog();
 
             // Set file name of exported stl
-            fileName = "C:\\Users\\Sebastian\\Desktop\\aa.stl";
+            string fileName;
+            if (folderDialog.ShowDialog() == DialogResult.OK)
+            {
+                fileName = folderDialog.SelectedPath + "\\buildingPrint.stl";
+            }
+            else
+            {
+                return;
+            }
+
 
             // Set binary save format
             SaveFormat saveFormat = SaveFormat.Binary;
