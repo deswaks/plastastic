@@ -35,14 +35,13 @@ namespace BuildingPrinter
                                             m_Revit.ActiveUIDocument.Document.ActiveView);
 
             // Set file name of exported stl
-            fileName = @"C:\fuckFace.stl";
-            
+            fileName = "C:\\Users\\Sebastian\\Desktop\\aa.stl";
+
             // Set binary save format
             SaveFormat saveFormat = SaveFormat.Binary;
 
             // Set export range
-            ElementsExportRange exportRange;
-            exportRange = ElementsExportRange.OnlyVisibleOnes;
+            ElementsExportRange exportRange = ElementsExportRange.OnlyVisibleOnes;
 
             // Include linked
             cbIncludeLinked = true;
@@ -83,51 +82,28 @@ namespace BuildingPrinter
             Document uidoc = commandData.Application.ActiveUIDocument.Document;
             Document doc = uiDoc.Document;
 
-            
 
-
-            //FilteredElementCollector finder alle sheets i dokumentet
-            // List<Element> alleSheets = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Sheets).ToElements().ToList();
-
-            List<Element> allWalls = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).ToElements().ToList();
+            //////////
+            // FILTER
+            //////////
             List<ElementId> elementIds = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).ToElementIds().ToList();
+            Transaction t = new Transaction(doc);
+            t.Start("Isolate walls");
+
+            doc.ActiveView.IsolateElementsTemporary(elementIds);
+
+            // Transaction close:
+            t.Commit();
 
 
-
-            // view isolateWalls = new FilteredElementCollector(doc).OfClass(typeof(View)).Cast<View>().
-
-            string elementstrings = "";
-            foreach (ElementId id in elementIds)
-            {
-                elementstrings = elementstrings + "," + id.ToString();
-            }
-
-            Autodesk.Revit.DB.View currentview = doc.ActiveView;
-
-            // MessageBox.Show(elementstrings, "Wall element id's");
-
-            DialogResult dialogResult = MessageBox.Show("Do you wanna export walls to stl?", "stl export", MessageBoxButtons.YesNo);
+            //////////
+            // EXPORT ALL VISIBLE ELEMENTS
+            //////////
+            DialogResult dialogResult = MessageBox.Show("Do you want to export to stl?", "stl export", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 fuckFace(uiApp);
             }
-            else if (dialogResult == DialogResult.No)
-            {
-                //do something else
-            }
-
-
-            // Starter transaction
-            Transaction t = new Transaction(doc);
-            t.Start("Isolate walls");
-
-            currentview.IsolateElementsTemporary(elementIds);
-
-            // Transaction close:
-            t.Commit();
-            
-
-
 
 
             return Result.Succeeded;
