@@ -55,10 +55,51 @@
   <ItemGroup>
     <Compile Include="ribbon\ribbon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="STLexporter\AssemblyInfo.cs" />
+    <Compile Include="STLexporter\DataGenerator.cs" />
+    <Compile Include="STLexporter\Properties\Resources.Designer.cs" />
+    <Compile Include="STLexporter\SaveData.cs" />
+    <Compile Include="STLexporter\Settings.cs" />
+    <Compile Include="STLexporter\STLDialogManager.cs" />
+    <Compile Include="STLexporter\STLExportCancelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STLexporter\STLExportCancelForm.Designer.cs">
+      <DependentUpon>STLExportCancelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STLexporter\STLExportCommand.cs" />
+    <Compile Include="STLexporter\STLExporterUI.cs" />
+    <Compile Include="STLexporter\STLExportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STLexporter\STLExportForm.Designer.cs">
+      <DependentUpon>STLExportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STLexporter\STLExportResource.Designer.cs" />
     <Compile Include="stlExport\BuildingPrinter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="STLexporter\Resources\STLExport.addin" />
+    <None Include="STLexporter\STLExport.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="STLexporter\Resources\ADSKSTLExporterHelp.htm" />
+    <Content Include="STLexporter\Resources\PackageContents.xml" />
+    <Content Include="STLexporter\Resources\STLExporter_32.png" />
+    <Content Include="STLexporter\Resources\STLExporter_64.ico" />
+    <Content Include="STLexporter\Resources\STLExporter_80.png" />
+    <Content Include="STLexporter\settings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="STLexporter\Properties\Resources.resx" />
+    <EmbeddedResource Include="STLexporter\STLExportCancelForm.resx">
+      <DependentUpon>STLExportCancelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STLexporter\STLExportForm.resx">
+      <DependentUpon>STLExportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STLexporter\STLExportResource.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
