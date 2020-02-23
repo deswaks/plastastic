@@ -95,8 +95,8 @@ namespace BIM.STLExport
         {
             m_Settings = settings;
 
-            try
-            {
+            //try
+            //{
 
                 m_StlExportCancel.Show();
 
@@ -137,23 +137,23 @@ namespace BIM.STLExport
                     m_Writer.AddTriangularNumberSection();
                 }
                 m_Writer.CloseFile();
-            }
-            catch (SecurityException)
-            {
-                MessageBox.Show(STLExportResource.ERR_SECURITY_EXCEPTION, STLExportResource.MESSAGE_BOX_TITLE,
-                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //}
+            //catch (SecurityException)
+            //{
+            //    MessageBox.Show(STLExportResource.ERR_SECURITY_EXCEPTION, STLExportResource.MESSAGE_BOX_TITLE,
+            //                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-                m_StlExportCancel.Close();
-                return GeneratorStatus.FAILURE;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show(STLExportResource.ERR_EXCEPTION, STLExportResource.MESSAGE_BOX_TITLE,
-                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //    m_StlExportCancel.Close();
+            //    return GeneratorStatus.FAILURE;
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show(STLExportResource.ERR_EXCEPTION, STLExportResource.MESSAGE_BOX_TITLE,
+            //                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-                m_StlExportCancel.Close();
-                return GeneratorStatus.FAILURE;
-            }
+            //    m_StlExportCancel.Close();
+            //    return GeneratorStatus.FAILURE;
+            //}
 
             m_StlExportCancel.Close();
             return GeneratorStatus.SUCCESS;

@@ -4,7 +4,7 @@ using Autodesk.Revit.UI;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-
+using BIM.STLExport;
 
 namespace BuildingPrinter
 {
@@ -13,6 +13,68 @@ namespace BuildingPrinter
 
     public class Print : IExternalCommand
     {
+        // Til fuckface
+        private BIM.STLExport.DataGenerator m_Generator = null;
+        private SortedDictionary<string, Category> m_CategoryList = new SortedDictionary<string, Category>();
+        private SortedDictionary<string, DisplayUnitType> m_DisplayUnits = new SortedDictionary<string, DisplayUnitType>();
+        private static DisplayUnitType m_SelectedDUT = DisplayUnitType.DUT_UNDEFINED;
+        private Autodesk.Revit.UI.UIApplication m_Revit = null;
+        string fileName;
+        bool cbExportColor;
+        bool cbIncludeLinked;
+        bool cbExportSharedCoordinates;
+        DisplayUnitType dup;
+
+
+        public void fuckFace(Autodesk.Revit.UI.UIApplication revit)
+        {
+            m_Revit = revit;
+            // Create data generator
+            m_Generator = new DataGenerator(m_Revit.Application,
+                                            m_Revit.ActiveUIDocument.Document,
+                                            m_Revit.ActiveUIDocument.Document.ActiveView);
+
+            // Set file name of exported stl
+            fileName = @"C:\fuckFace.stl";
+            
+            // Set binary save format
+            SaveFormat saveFormat = SaveFormat.Binary;
+
+            // Set export range
+            ElementsExportRange exportRange;
+            exportRange = ElementsExportRange.OnlyVisibleOnes;
+
+            // Include linked
+            cbIncludeLinked = true;
+
+            // Export in color
+            cbExportColor = false;
+
+            // Export in shared coordinates
+            cbExportSharedCoordinates = false;
+
+            // Set dup to 2 for millimeters
+            dup = DisplayUnitType.DUT_MILLIMETERS;
+
+            // scan for categories and add each of them to selectedCategories
+            m_CategoryList = m_Generator.ScanCategories(true);
+            List<Category> selectedCategories = m_CategoryList.Values.ToList();
+
+            // create settings object to save setting information
+            BIM.STLExport.Settings aSetting = new BIM.STLExport.Settings(saveFormat,
+                                                                        exportRange,
+                                                                        cbIncludeLinked,
+                                                                        cbExportColor,
+                                                                        cbExportSharedCoordinates,
+                                                                        selectedCategories,
+                                                                        dup);
+            // save Revit document's triangular data in a temporary file
+            m_Generator = new DataGenerator(m_Revit.Application,
+                                            m_Revit.ActiveUIDocument.Document,
+                                            m_Revit.ActiveUIDocument.Document.ActiveView);
+            // Save STL file
+            DataGenerator.GeneratorStatus succeed = m_Generator.SaveSTLFile(fileName, aSetting);
+        }
 
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -20,6 +82,8 @@ namespace BuildingPrinter
             UIDocument uiDoc = uiApp.ActiveUIDocument;
             Document uidoc = commandData.Application.ActiveUIDocument.Document;
             Document doc = uiDoc.Document;
+
+            
 
 
             //FilteredElementCollector finder alle sheets i dokumentet
@@ -45,7 +109,7 @@ namespace BuildingPrinter
             DialogResult dialogResult = MessageBox.Show("Do you wanna export walls to stl?", "stl export", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                
+                fuckFace(uiApp);
             }
             else if (dialogResult == DialogResult.No)
             {
